@@ -37,4 +37,18 @@ class Tests {
 		assertEquals(expectedOutputData, outData);
 	}
 	
+	@Test
+	void encoderTest() {
+		// input data
+		List<Integer> inData = new ArrayList<Integer>(Arrays.asList(61, 61, 62, 61, 61, 62, 61, 61));
+		// reEncoded output data (1 for trivial implementation)
+		List<Integer> outData = Decoder.reEncode(inData, 1);
+		// expected output data
+		List<Integer> expectedOutputData = new ArrayList<>(Arrays.asList(0, 61, 0, 61, 0, 62, 0, 61, 0, 61, 0, 62, 0, 61, 0, 61));
+
+
+		// check if expected output is equal to produced output
+		assertEquals(expectedOutputData, outData);
+	}
+	
 }

@@ -48,10 +48,10 @@ public class Decoder {
 		return outData;
 	}
 
-	public static List<Integer> reEncode(List<Integer> inData, boolean USE_TRIVIAL_IMPLEMENTATION){
+	public static List<Integer> reEncode(List<Integer> inData, int USE_TRIVIAL_IMPLEMENTATION){
 		List<Integer> reEncodedData = new ArrayList<Integer>();
 		// simple version
-		if (USE_TRIVIAL_IMPLEMENTATION) {
+		if (USE_TRIVIAL_IMPLEMENTATION == 1) {
 			for(int dataByte: inData) {
 				reEncodedData.add(0);
 				reEncodedData.add(dataByte);
@@ -59,9 +59,18 @@ public class Decoder {
 		}
 		// more difficult version
 		else{
-			
+			System.out.println("time was up...");
+			/* probably something like:
+			1. take a few bytes from end of list (for loop to test different sizes?)
+			2. check if bytes are present earlier in the same list
+			3. get offset and lenght of bytes and return byte pair (offset, length) */
 		}
-		return null;
+		return reEncodedData;
+	}
+	
+	// if implementation is not specified -> default to non trivial implementation (value of 0)
+	public static List<Integer> reEncode(List<Integer> inData){
+		return reEncode(inData, 0);
 	}
 }
 

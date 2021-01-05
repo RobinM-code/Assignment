@@ -17,18 +17,17 @@ public class HyveDecoder {
 		
 		// decode data
 		List<Integer> decodedData = Decoder.decode(myData);
-		System.out.println(decodedData);
 		
 		// write output to std out
 		for (int dataByte: decodedData) {
 			System.out.write(dataByte);
 		}
-		// re encode and write to std error
-		List<Integer> reEncodedData = Decoder.reEncode(decodedData, true);
-		for (int dataByte: decodedData) {
+		// re encode and write to std error (1 for trivial implementation)
+		List<Integer> reEncodedData = Decoder.reEncode(decodedData, 1);
+		for (int dataByte: reEncodedData) {
 			System.err.write(dataByte);
 		}
-		// flush output to see in in cmd
+		// flush output
 		System.out.flush();
 		System.err.flush();
 	}
